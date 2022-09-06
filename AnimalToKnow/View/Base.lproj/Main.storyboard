@@ -189,9 +189,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wuF-Ws-sk8">
-                        <barButtonItem key="leftBarButtonItem" image="info.circle" catalog="system" id="DVU-Vh-uyl"/>
+                        <barButtonItem key="leftBarButtonItem" image="info.circle" catalog="system" id="DVU-Vh-uyl">
+                            <connections>
+                                <action selector="infoTapped:" destination="BYZ-38-t0r" id="IGb-tR-ANb"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="network" catalog="system" id="Zxk-HZ-gpF"/>
+                            <barButtonItem image="network" catalog="system" id="Zxk-HZ-gpF">
+                                <connections>
+                                    <action selector="webSearchTapped:" destination="BYZ-38-t0r" id="aVJ-Mv-PNm"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="arrow.clockwise" catalog="system" id="Tuk-Ce-zie">
                                 <connections>
                                     <action selector="refreshTapped:" destination="BYZ-38-t0r" id="byB-gD-tIo"/>

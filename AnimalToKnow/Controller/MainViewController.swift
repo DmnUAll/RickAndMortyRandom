@@ -67,6 +67,52 @@ class MainViewController: UIViewController {
         animalManager.performRequest()
         activityIndicator.startAnimating()
     }
+    
+    @IBAction func infoTapped(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Ссылка на GitHub", message: nil, preferredStyle: .alert)
+        let textView = UITextView()
+        textView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        let controller = UIViewController()
+
+        textView.frame = controller.view.frame
+        controller.view.addSubview(textView)
+        textView.backgroundColor = .clear
+
+        alert.setValue(controller, forKey: "contentViewController")
+
+        let height: NSLayoutConstraint = NSLayoutConstraint(item: alert.view!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 150)
+        alert.view.addConstraint(height)
+
+        let attributedString = NSMutableAttributedString(string: "https://github.com/DmnUAll/AnimalToKnow.git")
+        let url = URL(string: "https://github.com/DmnUAll/AnimalToKnow.git")
+
+        attributedString.setAttributes([.link: url ?? ""], range: NSMakeRange(0, attributedString.length))
+
+        textView.attributedText = attributedString
+        textView.isUserInteractionEnabled = true
+        textView.isEditable = false
+        textView.textAlignment = .center
+
+        textView.linkTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+
+        let okAction = UIAlertAction(title: "OK", style: .default) {
+            UIAlertAction in
+        }
+        alert.addAction(okAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func webSearchTapped(_ sender: UIBarButtonItem) {
+        guard let url = URL(string:"https://www.google.com/search?q=\(nameLabel.text!.replacingOccurrences(of: " ", with: "%20"))") else {
+          return
+        }
+        UIApplication.shared.open(url)
+    }
 }
 
 extension MainViewController: AnimalManagerDelegate {
