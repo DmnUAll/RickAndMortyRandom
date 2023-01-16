@@ -10,6 +10,10 @@ final class MainController: UIViewController {
         return view
     }()
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
