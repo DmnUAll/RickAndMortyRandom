@@ -9,7 +9,6 @@ But the API is no longer supported. Therefore, the application was redesigned fo
 <img src="https://user-images.githubusercontent.com/82824022/212749024-70265034-e4d6-4b64-947d-0797d786242e.PNG" width=30% height=30%>
 </p>
 
-This project was the twelfth app writen by myself.\
 The main functionality that was applied in this project:
 - JSON parsing
 - DispatchQueue
